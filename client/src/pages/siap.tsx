@@ -70,7 +70,7 @@ export default function SIAPPropuesta() {
     {
       icon: AlertTriangle,
       title: "Glosas por Inconsistencia de Datos",
-      description: "Errores de lateralidad (Izquierda vs. Derecha), tiempos quirúrgicos imposibles y duplicidad de textos (Copy-Paste) detectados automáticamente por el SOAT."
+      description: "Errores de lateralidad (Izquierda vs. Derecha), tiempos quirúrgicos imposibles y duplicidad de textos (Copy-Paste) detectados automáticamente por los seguros."
     },
     {
       icon: Clock,
@@ -105,7 +105,7 @@ export default function SIAPPropuesta() {
 
   const implementacionIncluye = [
     "Ingeniería inversa y conexión segura a Base de Datos (PostgreSQL/SaludSystem)",
-    "Desarrollo y parametrización de las 15 reglas de validación del SOAT",
+    "Desarrollo y parametrización de las 15 reglas de validación del seguros",
     "Construcción del Dashboard de Control para Facturación",
     "Configuración del servidor y despliegue del RPA (Robot de ensamblaje)",
     "Capacitación al personal"
@@ -115,7 +115,7 @@ export default function SIAPPropuesta() {
     {
       icon: Wrench,
       title: "Actualización de Reglas",
-      description: "Si el SOAT saca una nueva norma de auditoría, actualizamos el algoritmo sin costo adicional"
+      description: "Si el seguros saca una nueva norma de auditoría, actualizamos el algoritmo sin costo adicional"
     },
     {
       icon: ServerCog,
@@ -165,27 +165,43 @@ export default function SIAPPropuesta() {
       <section 
         className="min-h-screen flex flex-col px-4 sm:px-6 py-12 sm:py-16 md:py-20 relative pt-20 sm:pt-24 md:pt-28 overflow-hidden"
         style={{ 
-          background: "linear-gradient(135deg, #082053 0%, #306ab0 50%, #082053 100%)"
+          background: "linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #e8e8e8 100%)"
         }}
       >
         <div className="max-w-7xl mx-auto w-full flex-1 flex flex-col justify-center">
           <div className="text-center space-y-6 md:space-y-8 fade-in-section">
-            <div className="inline-flex items-center justify-center w-24 h-24 md:w-32 md:h-32 rounded-full mb-6 mx-auto"
-              style={{ backgroundColor: "rgba(255, 255, 255, 0.15)" }}
-            >
-              <Shield className="w-12 h-12 md:w-16 md:h-16" style={{ color: "#ffffff" }} />
+            {/* Logo Veriflow */}
+            <div className="flex justify-center mb-6">
+              <img
+                src="/veriflow-logo.png"
+                alt="Veriflow"
+                className="h-32 md:h-40 lg:h-48 w-auto object-contain"
+                onError={(e) => {
+                  // Fallback al icono si no existe el logo
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'flex';
+                }}
+              />
+              <div 
+                className="hidden items-center justify-center w-32 h-32 md:w-40 md:h-40 rounded-xl"
+                style={{ backgroundColor: "#f0f0f0" }}
+              >
+                <Shield className="w-16 h-16 md:w-20 md:h-20" style={{ color: "#4a5f8f" }} />
+              </div>
             </div>
             
             <h1 
               className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight"
-              style={{ color: "#ffffff", fontWeight: 800 }}
+              style={{ color: "#1a1a1a", fontWeight: 800 }}
             >
               PROPUESTA COMERCIAL Y TÉCNICA
             </h1>
             
             <h2 
               className="text-2xl md:text-4xl lg:text-5xl font-semibold"
-              style={{ color: "#dee9f6", fontWeight: 600 }}
+              style={{ color: "#4a5f8f", fontWeight: 600 }}
             >
               Sistema Inteligente de Auditoría Preventiva<br />
               y Orquestación de Facturación
@@ -193,14 +209,14 @@ export default function SIAPPropuesta() {
             
             <div 
               className="text-xl md:text-2xl lg:text-3xl font-semibold"
-              style={{ color: "#ffffff", fontWeight: 700 }}
+              style={{ color: "#2c3e50", fontWeight: 700 }}
             >
-              SIAP - "SENTINEL"
+              SIAP - "Veriflow"
             </div>
             
             <p 
               className="text-base md:text-lg lg:text-xl"
-              style={{ color: "#dee9f6", fontWeight: 500 }}
+              style={{ color: "#5a5a5a", fontWeight: 500 }}
             >
               Fecha: 24 de Noviembre de 2024
             </p>
@@ -212,7 +228,7 @@ export default function SIAPPropuesta() {
         >
           <p 
             className="text-xs sm:text-sm md:text-base leading-relaxed text-center"
-            style={{ color: "#ffffff", fontWeight: 400, opacity: 0.7 }}
+            style={{ color: "#5a5a5a", fontWeight: 400, opacity: 0.8 }}
           >
             Documento confidencial. Propuesta exclusiva para optimización del ciclo de ingresos hospitalarios.
           </p>
@@ -238,7 +254,7 @@ export default function SIAPPropuesta() {
             {[
               { id: "resumen", text: "RESUMEN EJECUTIVO" },
               { id: "diagnostico", text: "DIAGNÓSTICO Y DOLOR FINANCIERO" },
-              { id: "solucion", text: "SOLUCIÓN PROPUESTA: ARQUITECTURA SENTINEL" },
+              { id: "solucion", text: "SOLUCIÓN PROPUESTA: ARQUITECTURA VERIFLOW" },
               { id: "roi", text: "ANÁLISIS DE RETORNO DE INVERSIÓN (ROI)" },
               { id: "oferta", text: "OFERTA ECONÓMICA" },
               { id: "cronograma", text: "CRONOGRAMA DE EJECUCIÓN" }
@@ -306,7 +322,7 @@ export default function SIAPPropuesta() {
                         className="text-base md:text-lg leading-relaxed"
                         style={{ color: "#082053", fontWeight: 400 }}
                       >
-                        La clínica enfrenta actualmente un desafío crítico en su ciclo de ingresos: <strong>un porcentaje de devoluciones (glosas) del SOAT cercano al 20%-40%</strong> de la facturación mensual, lo que representa aproximadamente <strong style={{ color: "#dc2626" }}>$400.000.000 COP retenidos cada mes</strong>.
+                        La clínica enfrenta actualmente un desafío crítico en su ciclo de ingresos: <strong>un porcentaje de devoluciones (glosas) del seguros cercano al 20%-40%</strong> de la facturación mensual, lo que representa aproximadamente <strong style={{ color: "#dc2626" }}>$400.000.000 COP retenidos cada mes</strong>.
                       </p>
                     </div>
                   </div>
@@ -339,7 +355,7 @@ export default function SIAPPropuesta() {
                         className="text-base md:text-lg leading-relaxed"
                         style={{ color: "#082053", fontWeight: 400 }}
                       >
-                        Esta propuesta presenta la implementación de <strong>"Sentinel"</strong>, una arquitectura de software intermedia que <strong>valida, corrige y ensambla la facturación automáticamente</strong> antes de ser enviada, garantizando el cumplimiento de las reglas algorítmicas del SOAT.
+                        Esta propuesta presenta la implementación de <strong>"Veriflow"</strong>, una arquitectura de software intermedia que <strong>valida, corrige y ensambla la facturación automáticamente</strong> antes de ser enviada, garantizando el cumplimiento de las reglas algorítmicas del seguros.
                       </p>
                     </div>
                   </div>
@@ -484,7 +500,7 @@ export default function SIAPPropuesta() {
             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-center fade-in-section"
             style={{ color: "#082053", fontWeight: 700 }}
           >
-            Solución Propuesta: Arquitectura "Sentinel"
+            Solución Propuesta: Arquitectura "Veriflow"
           </h2>
           
           <p 
@@ -648,7 +664,7 @@ export default function SIAPPropuesta() {
                         className="text-center p-4 border-b-2"
                         style={{ color: "#082053", fontWeight: 600, borderColor: "#306ab0" }}
                       >
-                        Con Solución "Sentinel"
+                        Con Solución "Veriflow"
                       </th>
                       <th 
                         className="text-center p-4 border-b-2"
@@ -724,19 +740,21 @@ export default function SIAPPropuesta() {
       <section 
         id="oferta"
         className="py-12 sm:py-16 md:py-20 px-4 sm:px-6"
-        style={{ backgroundColor: "#082053" }}
+        style={{ 
+          background: "linear-gradient(180deg, #f5f5f5 0%, #e8e8e8 50%, #ffffff 100%)"
+        }}
       >
         <div className="max-w-6xl mx-auto">
           <h2 
             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center fade-in-section"
-            style={{ color: "#ffffff", fontWeight: 700 }}
+            style={{ color: "#1a1a1a", fontWeight: 700 }}
           >
             Oferta Económica
           </h2>
 
           <p 
             className="text-lg md:text-xl text-center mb-12 fade-in-section"
-            style={{ color: "#dee9f6", fontWeight: 500 }}
+            style={{ color: "#4a5f8f", fontWeight: 500 }}
           >
             La propuesta se divide en dos componentes: <strong>Setup (Implementación)</strong> y <strong>SaaS (Servicio Mensual)</strong>
           </p>
@@ -853,7 +871,7 @@ export default function SIAPPropuesta() {
                   className="text-sm mb-6 text-center"
                   style={{ color: "#082053", fontWeight: 400 }}
                 >
-                  El SOAT cambia sus reglas constantemente. Este servicio garantiza que el sistema no quede obsoleto y opere 24/7.
+                  El seguro cambia sus reglas constantemente. Este servicio garantiza que el sistema no quede obsoleto y opere 24/7.
                 </p>
 
                 <div className="space-y-4 mb-6">
@@ -900,7 +918,7 @@ export default function SIAPPropuesta() {
                     className="text-4xl font-bold mb-2"
                     style={{ color: "#082053", fontWeight: 800 }}
                   >
-                    $1.600.000
+                    $2.250.000
                   </p>
                   <p 
                     className="text-sm"
@@ -1020,14 +1038,14 @@ export default function SIAPPropuesta() {
       {/* FOOTER */}
       <footer 
         className="py-12 px-6"
-        style={{ backgroundColor: "#0a1628" }}
+        style={{ backgroundColor: "#2c3e50" }}
       >
         <div className="max-w-6xl mx-auto text-center">
           <p 
             className="text-sm md:text-base"
-            style={{ color: "#fffcf7", fontWeight: 400, opacity: 0.9 }}
+            style={{ color: "#ffffff", fontWeight: 400, opacity: 0.95 }}
           >
-            © 2024 – Propuesta SIAP "Sentinel" · Sistema Inteligente de Auditoría Preventiva
+            © 2025 – Propuesta SIAP "Veriflow" · Sistema Inteligente de Auditoría Preventiva
           </p>
         </div>
       </footer>

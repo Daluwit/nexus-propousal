@@ -83,15 +83,25 @@ export default function Navbar({
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo/Brand - NEXUS vanta */}
+          {/* Logo/Brand - NEXUS vanta (Icono + Nombre) */}
           <div
-            className="flex items-center cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
+            {/* Icono hexagonal */}
+            <img
+              src="/nexus-icon.png"
+              alt="NEXUS"
+              className="h-8 md:h-9 lg:h-10 w-auto object-contain"
+              style={{
+                filter: isScrolled ? 'none' : 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))'
+              }}
+            />
+            {/* Nombre "NEXUS vanta" */}
             <img
               src="/nexus-logo.png"
-              alt="NEXUS vanta"
-              className="h-10 md:h-12 lg:h-14 w-auto object-contain"
+              alt="vanta"
+              className="h-6 md:h-7 lg:h-8 w-auto object-contain"
               style={{
                 filter: isScrolled ? 'none' : 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))'
               }}
@@ -141,11 +151,18 @@ export default function Navbar({
               style={{ backgroundColor: "#faf6f1" }}
             >
               <div className="flex flex-col space-y-4 mt-8">
-                <div className="mb-6">
+                <div className="mb-6 flex items-center gap-2">
+                  {/* Icono hexagonal */}
+                  <img
+                    src="/nexus-icon.png"
+                    alt="NEXUS"
+                    className="h-9 w-auto object-contain"
+                  />
+                  {/* Nombre "NEXUS vanta" */}
                   <img
                     src="/nexus-logo.png"
-                    alt="NEXUS vanta"
-                    className="h-12 w-auto object-contain"
+                    alt="vanta"
+                    className="h-7 w-auto object-contain"
                   />
                 </div>
                 {navItems.map((item) => (
