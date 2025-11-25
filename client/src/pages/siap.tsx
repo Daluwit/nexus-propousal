@@ -218,7 +218,7 @@ export default function SIAPPropuesta() {
               className="text-base md:text-lg lg:text-xl"
               style={{ color: "#5a5a5a", fontWeight: 500 }}
             >
-              Fecha: 24 de Noviembre de 2024
+              Fecha: 24 de Noviembre de 2025
             </p>
           </div>
         </div>
